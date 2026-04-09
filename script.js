@@ -27,28 +27,20 @@ document.getElementById("clearBtn").onclick = () => {
 };
 
 analyzeBtn.onclick = async () => {
-    // Show UI loading state
-    scanner.classList.remove("hidden");
-    resultsBox.classList.remove("hidden");
-    analysisText.innerText = "Analyzing neural markers...";
-    analyzeBtn.disabled = true;
-
+    document.getElementById("analysis").innerText = "SCANNING NEURAL MARKERS...";
+    
     try {
         const dataURL = canvas.toDataURL("image/jpeg", 0.8);
-        const base64Image = dataURL.split(',')[1]; // Get just the base64 string
 
         const response = await fetch("/api/generate", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ image: base64Image })
+            body: JSON.stringify({ image: dataURL })
         });
 
         const data = await response.json();
-        analysisText.innerText = data.text;
+        document.getElementById("analysis").innerText = data.text;
     } catch (err) {
-        analysisText.innerText = "Connection Error: Ensure your Vercel /api/generate route is configured.";
-    } finally {
-        scanner.classList.add("hidden");
-        analyzeBtn.disabled = false;
+        document.getElementById("analysis").innerText = "Connection Error: Check Vercel Logs.";
     }
 };
