@@ -1,42 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>NeuroLens</title>
-
-<link rel="icon" href="data:,">
-
-<link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroLens | Clinical Diagnostic Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
+    <div class="container">
+        <header>
+            <div class="brand">
+                <h1>NeuroLens <span class="badge">PRO</span></h1>
+            </div>
+            <p class="subtitle">AI-Assisted Projective Drawing Analysis for Clinical Phenotyping.</p>
+        </header>
 
-<div class="container">
+        <div class="workspace">
+            <div id="scanner" class="hidden"></div>
+            <canvas id="canvas" width="700" height="420"></canvas>
+        </div>
 
-<header>
-<h1>NeuroLens</h1>
-<p class="subtitle">Draw something and let the AI psychologist interpret your mind.</p>
-</header>
+        <div class="controls">
+            <button id="analyzeBtn">Run Diagnostic Scan</button>
+            <button id="clearBtn">Clear Session</button>
+        </div>
 
-<div class="workspace">
-<canvas id="canvas" width="700" height="420"></canvas>
-</div>
-
-<div class="controls">
-<button id="analyzeBtn">Analyze Drawing</button>
-<button id="clearBtn">Clear</button>
-</div>
-
-<div class="analysis-box">
-<h2>AI Analysis</h2>
-<p id="analysis">Draw something and press Analyze.</p>
-</div>
-
-</div>
-
-<script src="script.js"></script>
-
+        <div id="results" class="analysis-box hidden">
+            <div class="status-header">
+                <h2>Clinical Assessment Report</h2>
+                <span id="timestamp"></span>
+            </div>
+            <div id="analysis-content">
+                <p id="analysis">Initializing neural pathways...</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
