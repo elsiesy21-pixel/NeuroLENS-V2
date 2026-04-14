@@ -8,7 +8,9 @@ export default async function handler(req, res) {
     }
 
     const genAI = new GoogleGenerativeAI(process.env.GOOGLE_AI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    
+    // UPDATED LINE: Changed to the current model to fix the 404 Not Found error
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
     // Safety Check: Did the image arrive?
     const { image } = req.body;
