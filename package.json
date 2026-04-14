@@ -1,8 +1,9 @@
 {
-  "name": "neurolens",
+  "name": "neurolens-v2",
   "version": "1.0.0",
+  "description": "NeuroLENS Project",
   "type": "module",
   "dependencies": {
-    "@google/generative-ai": "^0.2.0"
+    "@google/generative-ai": "^0.21.0"
   }
 }
